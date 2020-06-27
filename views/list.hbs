@@ -1,0 +1,36 @@
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+th, td {
+    padding-right: 5px;
+}
+th {
+    text-align: left;
+}
+</style>
+
+<form method="GET" action="/">
+    <button>Home</button>
+</form>
+<div>
+    <h1>Movies List</h1>
+    <form method="GET" action="/movies/add">
+        <Button>Add Movie</Button>
+    </form>
+</div>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>ImageURL</th>
+        <th>Summary</th>
+    </tr>
+    {{#each data}}
+    <tr>
+        <td>{{this.title}}</th>
+        <td>{{this.img}}</th>
+        <td>{{this.summary}}</th>
+    </tr>
+    {{/each}}
+</table>

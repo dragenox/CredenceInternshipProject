@@ -1,0 +1,22 @@
+<form method="GET" action="/movies/list">
+    <Button>Back</Button>
+</form>
+<h1>Add Movie to Database</h1>
+<form method="POST" action="/movies/add">
+    <label style="font-weight: bold; font-size: large;">Enter Movie details</label>&nbsp;&nbsp;<input type="reset" value="Reset Form"></br></br>
+    <label>Title:</label>&nbsp;&nbsp;<input type="text" id="movieTitle" name="name" placeholder="Enter Movie Name" style="width: 250px;" required></br></br>
+    <label>Cover (max 2MB):</label>&nbsp;&nbsp;<input type="file" id="movieCover" name="img" placeholder="Select image" required accept="image/png, image/jpeg"></br></br>
+    <label>Summary:</label></br>
+    <textarea type="text" id="movieSummary" name="summary" style="max-width: 300px; max-height: 100px; min-width: 300px; min-height: 100px; width: 300px; height: 100px;" required></textarea></br></br>
+    <input type="submit" value="Add Movie">
+    </form>
+<script>
+    var imageField = document.getElementById("movieCover");
+    imageField.onchange = function() {
+        var fileSize = this.files[0].size/1024; //Converted to KB for convenience
+        if(fileSize > 2048){
+            alert("File is too large, reduce to below 2MB!\nFile Size: " + fileSize);
+            this.value = "";
+        }
+    };
+</script>
