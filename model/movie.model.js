@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-var LibrarySchmena  = new mongoose.Schema({
+var movieSchema  = new mongoose.Schema({
     title : {
         type : String,
         required : "Required"
@@ -14,4 +14,4 @@ var LibrarySchmena  = new mongoose.Schema({
     },
 });
 
-mongoose.model("Movie", LibrarySchmena);
+module.exports = Movie = mongoose.model("Movie", movieSchema);

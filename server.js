@@ -1,4 +1,4 @@
-const connection = require("./model");
+const connectDB = require("./model/connection");
 const express = require("express");
 const application = express();
 const path = require("path");
@@ -28,6 +28,8 @@ application.get("/", (request, response) =>{
 
 application.use("/movies", MovieController)
 
-application.listen(port, () => {
-    console.log("Server Started")
+connectDB(function(){
+    application.listen(port, () => {
+        console.log("2 Server Started")
+    });
 })
